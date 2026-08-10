@@ -1,1 +1,1 @@
-# Pharmacy-Management-System-Django-
+# Pharmacy-Management-System-Django
