@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.medicines', 'apps.profiles', 'apps.sales', 'apps.categories', 'apps.customers', 'apps.reports', 'apps.stocks', 'apps.suppliers'
+    'apps.medicines', 'apps.profiles', 'apps.sales', 'apps.categories', 'apps.customers', 'apps.reports', 'apps.stocks', 'apps.suppliers', 'apps.dashboard'
 ]
 
 AUTH_USER_MODEL = 'profiles.CustomUser'
@@ -108,10 +108,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# 1. Set global timezone to Indian Standard Time
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
+# 2. Keep True so Django stores UTC in DB but converts to IST for you
 USE_TZ = True
 
 
