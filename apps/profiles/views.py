@@ -6,19 +6,24 @@ from django.contrib.auth.forms import (
     UserCreationForm,
     AuthenticationForm
 )
+from django.contrib.auth import (
+    authenticate,
+    login,
+    logout
+)
 
 # Create your views here.
 
 
-def login(request):
+def profile_login(request):
+    if request.user.is_authenticated:
+        return redirect("dashboard")
     if request.method == "POST":
         forms = AuthenticationForm(data=request.POST)
         if forms.is_valid():
             user = forms.get_user()
             login(request, user)
             return redirect("dashboard")
-        else:
-            return redirect("login")
 
     else:
         forms = AuthenticationForm()
@@ -26,10 +31,10 @@ def login(request):
 
 
 @login_required
-def logout(request):
+def profile_logout(request):
     if request.method == "POST":
         logout(request)
-        return redirect("login")
+        return redirect("profile_login")
 
 
 @login_required
@@ -40,7 +45,7 @@ def employee_reg(request):
         forms = Profiles(request.POST)
         if forms.is_valid():
             forms.save()
-            return redirect("login")
+            return redirect("profile_login")
     else:
         forms = Profiles()
     return render(request, 'profile_section/employee_registration.html', {"forms": forms})

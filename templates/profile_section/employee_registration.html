@@ -1,15 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Registration</title>
+    <link rel="stylesheet" href={% static 'css/profile/style.css' %}>
 </head>
 <body>
-    <h1>Welcome to Employee Regstration</h1>
+    <div class="container">
+        <div class="form-card">
+    <h1>Employee Registration</h1>
+    <p class="subtitle">Register a new employee</p>
     <form action="" method="POST">
+        {% csrf_token %}
         {{forms.as_p}}
-        <button type="submit">Register</button>
+        <button type="submit"  class="btn">Register</button>
     </form>
+    <a href="{% url 'profile_login' %}" class="back-link">
+                Back to Login
+            </a>
+</div>
+</div>
 </body>
 </html>

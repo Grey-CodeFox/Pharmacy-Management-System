@@ -1,18 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Login</title>
+    <link rel="stylesheet" href={% static 'css/profile/style.css' %}>
 </head>
 <body>
-    <h1>Welcome To Login Page</h1>
+    <div class="container">
+<div class="form-card">
+    <h1>Login</h1>
+    <p class="subtitle">
+        Sign in to your account
+    </p>
+
     <form action="" method="post">
+        {% csrf_token %}
         {{forms.as_p}}
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn">Submit</button>
     </form>
     {% if user.is_superuser %}
-        <a href="{% url 'employee_registration' %}">EMPLOYEE REGISTRATION</a>    
+        <a href="{% url 'employee_registration' %}" class="admin-link">EMPLOYEE REGISTRATION</a>    
      {% endif %}
+     </div>
+    </div>
 </body>
 </html>
