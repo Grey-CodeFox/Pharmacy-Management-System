@@ -1,11 +1,94 @@
-<!DOCTYPE html>
+{% load static %}
+
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAYOUT</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{% block title %}NuChemist{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/layout/style.css' %}" />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- Sidebar -->
+      <aside class="nav-panel">
+        <!-- Logo -->
+        <div class="logo">
+          <div class="logo-icon">N</div>
+
+          <div class="logo-text">
+            <h2>NuChemist</h2>
+            <p>Pharmacy Management</p>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav-contents">
+          <a href="#" class="nav-items">
+            <span class="nav-icon">⌂</span>
+            <span>Dashboard</span>
+          </a>
+
+          <a href="#" class="nav-items">
+            <span class="nav-icon">▣</span>
+            <span>Medicines</span>
+          </a>
+
+          <a href="#" class="nav-items">
+            <span class="nav-icon">◈</span>
+            <span>Categories</span>
+          </a>
+
+          <a href="#" class="nav-items">
+            <span class="nav-icon">▤</span>
+            <span>Suppliers</span>
+          </a>
+
+          <a href="#" class="nav-items">
+            <span class="nav-icon">▥</span>
+            <span>Stock</span>
+          </a>
+
+          <a href="#" class="nav-items">
+            <span class="nav-icon">♙</span>
+            <span>Customers</span>
+          </a>
+
+          <a href="#" class="nav-items">
+            <span class="nav-icon">▱</span>
+            <span>Sales</span>
+          </a>
+
+          <a href="#" class="nav-items">
+            <span class="nav-icon">▥</span>
+            <span>Reports</span>
+          </a>
+        </nav>
+
+        <!-- User -->
+        <div class="nav-user">
+          <div class="user-contents">
+            <div class="user-avatar">AR</div>
+
+            <div class="user-info">
+              <div class="user-name">User Name</div>
+
+              <div class="user-role">Administrator</div>
+            </div>
+          </div>
+
+          <form method="POST" action="{% url 'profile_logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="logout-btn">Logout</button>
+          </form>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="content-panel">{% block content %} {% endblock %}</main>
+    </div>
+  </body>
 </html>
