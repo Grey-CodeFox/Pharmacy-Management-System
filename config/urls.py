@@ -28,7 +28,8 @@ admin.site.index_title = "Dashboard"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.profiles.urls')),
-    path('dashboard/', include('apps.dashboard.urls'))
+    path('dashboard/', include('apps.dashboard.urls')),
+    path('category/', include('apps.categories.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

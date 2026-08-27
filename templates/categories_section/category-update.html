@@ -1,0 +1,19 @@
+{% extends "layouts/layout.html" %} {% load static%} {%block title%} Category
+Update {%endblock%} {% block content %}
+
+<div>
+  <form method="POST" action="{% url 'category_update' id=get_id %}">
+    {% csrf_token %}
+    <label for="name">Name : </label>
+    <input type="text" name="name" value="{{get_name}}"/>
+    <br />
+    <label for="Description">Description : </label>
+    <br>
+    <textarea name="description" id="">{{get_description}}</textarea>
+    <br />
+    <a href="{% url 'category_home' %}">Cancel</a>
+    <button type="submit">Update Category</button>
+  </form>
+</div>
+
+{% endblock %}

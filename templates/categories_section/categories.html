@@ -1,12 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories</title>
-</head>
-<body>
-    <h1>Welcome To categories</h1>
-    
-</body>
-</html>
+ {% extends "layouts/card-layout.html" %} 
+    {% load static%}
+
+    {%block title%} Category {%endblock%}
+
+    {% block cardTitle %}
+    Categories
+    {% endblock %}
+
+    {% block cardDesc %}
+    Organize Medicines By Category
+    {% endblock %}
+
+
+
+{% block cardHeadText %} All Categories{% endblock %}
+
+{% block cardHeadBtn %}
+     <a href="{% url 'category_add' %}">+ Add Category</a>    
+{% endblock %}
+
+{% block cardContent %}
+
+<table border="1" style="width : 100% ; text-align:left">
+
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        
+        {% for item in category %}
+        <tr>
+
+            <td>
+               {{item.name}}
+            </td>
+
+
+            <td>
+                {{item.description}}
+            </td>
+
+            <td>
+                <a href="{% url 'category_update' id=item.id %}">
+    Update
+</a>
+                <form action="{% url 'category_delete' id=item.id%}" method="post" onsubmit="return confirm('Are you sure you want to delete this category?');">
+                    {% csrf_token %}
+                    <button type="submit">del</button>
+                </form>
+                  
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'layouts/layout.html' %}
+
+    {% block content %} 
+
+
+<div class="inner-content">
+    <div class="heading-texts">
+<h1>
+    {% block cardTitle %}
+    {% endblock %}
+
+</h1>
+<h2>
+    {% block cardDesc %}
+    {% endblock %}
+</h2>
+    </div>
+    <div class="content-card">
+    
+    {% block cardHead %}
+    <div>
+
+        <p>{% block cardHeadText %} {% endblock %}</p>
+
+        
+    </div>
+        
+    <div>
+        {% block cardHeadBtn %}
+    
+        {% endblock %}
+    </div>
+    {% endblock %}
+<div>
+
+    {% block cardContent %}
+    
+    
+    {% endblock %}
+</div>
+    
+</div>
+{% endblock %}
+
