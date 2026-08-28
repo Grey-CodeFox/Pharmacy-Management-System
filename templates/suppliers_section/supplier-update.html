@@ -1,0 +1,59 @@
+{% extends "layouts/layout.html" %} {% load static%} {%block title%} Supplier
+Update {%endblock%} {% block content %}
+
+<div class="form-page">
+  <form method="POST" class="content-form" action="{% url 'supplier_update' id=supplier.id %}">
+    {% csrf_token %}
+    <p>Update Supplier</p>
+    {% comment %}*** Name *** {% endcomment %}
+    <div class="form-group">
+    <label for="name">Name </label>
+    <input type="text" id="name"
+                name="name"
+                placeholder="Enter supplier name" value="{{supplier.name}}" />
+    </div>
+
+
+    {% comment %}*** Contact Person *** {% endcomment %}
+    <div class="form-group">
+    <label for="contact_person">Contact Person </label>
+    <input type="text" id="contact_person"
+                name="contact_person"
+                placeholder="Enter  contact person" value="{{supplier.contact_person}} "/>
+    </div>
+
+
+    {% comment %}*** Phone *** {% endcomment %}
+    <div class="form-group">
+    <label for="phone">Phone </label>
+    <input type="text" id="phone"
+                name="phone"
+                placeholder="+91 *******" value="{{supplier.phone}}"/>
+    </div>
+
+
+    {% comment %}*** Email *** {% endcomment %}
+    <div class="form-group">
+    <label for="email">Email </label>
+    <input type="email" id="email"
+                name="email"
+                placeholder="abc@gmail.com" value="{{supplier.email}}" />
+    </div>
+{% comment %}*** Address *** {% endcomment %}
+    <div class="form-group">
+    <label for="address">Address </label>
+    <textarea
+                id="address"
+                name="address"
+                placeholder="Enter supplier address"
+            >{{supplier.address}}</textarea>
+    </div>
+    
+    <div class="form-actions">
+    <a href="{% url 'supplier_home' %}" class="cancel-btn">Cancel</a>
+    <button type="submit" class="submit-btn">Update</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

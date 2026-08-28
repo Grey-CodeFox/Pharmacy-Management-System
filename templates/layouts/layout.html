@@ -8,6 +8,9 @@
     <title>{% block title %}NuChemist{% endblock %}</title>
 
     <link rel="stylesheet" href="{% static 'css/layout/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/layout/card-layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout/add-items-layout.css' %}">
+
   </head>
 
   <body>
@@ -41,7 +44,7 @@
             <span>Categories</span>
           </a>
 
-          <a href="#" class="nav-items">
+          <a href="{% url 'supplier_home' %}" class="nav-items">
             <span class="nav-icon">▤</span>
             <span>Suppliers</span>
           </a>

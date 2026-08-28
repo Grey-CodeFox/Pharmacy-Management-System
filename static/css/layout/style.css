@@ -187,39 +187,7 @@ body {
 
     min-width: 0;
 
-    padding: 30px;
+    padding: 25px;
 
     background: #f5f7fa;
 }
-
-/* REPONSIVENES=>PROJECT FOCUSING MAINLY ONLY ON COMPUTER NOW  */
-/* @media (max-width: 768px) {
-
-    .nav-panel {
-        width: 70px;
-        padding: 15px 8px;
-    }
-
-    .logo-text,
-    .nav-items span:last-child,
-    .user-info,
-    .logout-btn {
-        display: none;
-    }
-
-    .logo {
-        justify-content: center;
-    }
-
-    .nav-items {
-        justify-content: center;
-    }
-
-    .user-contents {
-        justify-content: center;
-    }
-
-    .content-panel {
-        padding: 20px;
-    }
-} */

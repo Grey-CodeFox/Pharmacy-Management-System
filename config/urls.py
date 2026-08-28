@@ -29,7 +29,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.profiles.urls')),
     path('dashboard/', include('apps.dashboard.urls')),
-    path('category/', include('apps.categories.urls'))
+    path('category/', include('apps.categories.urls')),
+    path('supplier/', include('apps.suppliers.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

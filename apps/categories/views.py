@@ -14,7 +14,7 @@ def category_add(request):
         description = request.POST.get('description')
         category = Category(name=name, description=description)
         category.save()
-        return redirect(category_home)
+        return redirect("category_home")
     return render(request, "categories_section/category-add.html")
 
 

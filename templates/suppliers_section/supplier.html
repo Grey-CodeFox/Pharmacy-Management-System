@@ -1,21 +1,23 @@
 {% extends "layouts/card-layout.html" %} 
 {% load static%}
+
+
 {%block title%}
-Category
+Suppliers
  {%endblock%} 
  {% block cardTitle %}
-  Categories 
+  Suppliers 
   {% endblock %} 
   {% block cardDesc %} 
-  Organize Medicines By Category 
+  Manage Supplier Contacts
   {% endblock %} 
   {% block cardHeadText %} 
-  All Categories
+  All Suppliers
   {% endblock %} 
   
   {% block cardHeadBtn %}
-<a href="{% url 'category_add' %}" class="add-page-btn">+ Add Category</a>
-{% endblock %} 
+<a href="{% url 'supplier_add' %}" class="add-page-btn">+ Add Supplier</a>
+{% endblock %}
 
 {% block cardContent %}
 
@@ -23,20 +25,25 @@ Category
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
+      <th>Contact</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Address</th>
       <th class="action-head" >Actions</th>
     </tr>
   </thead>
 
   <tbody>
-    {% for item in category %}
+    {% for item in supplier %}
     <tr>
       <td>{{item.name}}</td>
-
-      <td>{{item.description}}</td>
+      <td>{{item.contact_person}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.address}}</td>
 
       <td class="action-cell" >
-        <a href="{% url 'category_update' id=item.id %}" class="edit-btn">
+        <a href="{% url 'supplier_update' id=item.id %}" class="edit-btn">
           <img src="{% static 'img/pencil.png' %}" alt="" width="15" height = "15" />
         </a>
         <form
@@ -56,7 +63,7 @@ Category
     {% empty %}
     <tr>
                 <td colspan="7" class="empty-message">
-                    No categories found.
+                    No suppliers found.
                 </td>
             </tr>
     {% endfor %}
