@@ -17,7 +17,7 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
-.content-form p:first-of-type {
+.content-form-title {
     padding-bottom: 10px;
 }
 
