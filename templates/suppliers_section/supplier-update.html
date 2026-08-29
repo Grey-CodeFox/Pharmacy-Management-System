@@ -5,6 +5,16 @@ Update {%endblock%} {% block content %}
   <form method="POST" class="content-form" action="{% url 'supplier_update' id=supplier.id %}">
     {% csrf_token %}
     <p>Update Supplier</p>
+
+        {% comment %}*** Error Messages ***** {% endcomment %}
+    {% if messages %}
+    {% for message in messages %}
+    <p class="message {{message.tags}}" >
+      {{message}}
+    </p>
+    {% endfor %}
+    {% endif %}
+    
     {% comment %}*** Name *** {% endcomment %}
     <div class="form-group">
     <label for="name">Name </label>
@@ -28,7 +38,7 @@ Update {%endblock%} {% block content %}
     <label for="phone">Phone </label>
     <input type="text" id="phone"
                 name="phone"
-                placeholder="+91 *******" value="{{supplier.phone}}"/>
+                placeholder="91*******" minlength="10"  maxlength="10" value="{{supplier.phone}}"/>
     </div>
 
 

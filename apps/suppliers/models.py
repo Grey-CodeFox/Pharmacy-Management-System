@@ -8,7 +8,7 @@ class Supplier(models.Model):
     contact_person = models.CharField(
         max_length=100
     )
-    phone = models.CharField(max_length=15, unique=True)
+    phone = models.CharField(max_length=10)
     email = models.EmailField(unique=True)
     address = models.TextField()
     created_at = models.DateTimeField(
