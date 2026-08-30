@@ -4,7 +4,7 @@ Update {%endblock%} {% block content %}
 <div class="form-page">
   <form method="POST" class="content-form" action="{% url 'supplier_update' id=supplier.id %}">
     {% csrf_token %}
-    <p>Update Supplier</p>
+    <p class="content-form-title">Update Supplier</p>
 
         {% comment %}*** Error Messages ***** {% endcomment %}
     {% if messages %}

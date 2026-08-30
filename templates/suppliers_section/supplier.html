@@ -43,6 +43,7 @@ Suppliers
       <td>{{item.address}}</td>
 
       <td class="action-cell" >
+        <div class="action-buttons">
         <a href="{% url 'supplier_update' id=item.id %}" class="edit-btn">
           <img src="{% static 'img/pencil.png' %}" alt="" width="15" height = "15" />
         </a>
@@ -58,6 +59,7 @@ Suppliers
             <img src="{% static 'img/bin.png' %}" alt="" width="15" height = "15" />
           </button>
         </form>
+      </div>
       </td>
     </tr>
     {% empty %}
