@@ -1,0 +1,159 @@
+{% extends "layouts/layout.html" %}
+{% load static %}
+
+{% block title %}
+Medicine Add
+{% endblock %}
+
+{% block content %}
+
+<div class="form-page">
+
+    <form method="POST"
+          class="content-form"
+          enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <p class="content-form-title">Add New Medicine</p>
+
+      
+        <div class="form-group">
+            {{ form.name.label_tag }}
+            {{ form.name }}
+            {% if form.name.error %}
+            <div class="message error">
+                {{ form.name.error }}
+            </div>
+            {% endif %}
+        </div>
+
+
+        
+        <div class="form-group">
+            {{ form.image.label_tag }}
+            {{ form.image }}
+            {% if form.image.error %}
+            <div class="message error">
+                {{ form.image.error }}
+            </div>
+            {% endif %}
+        </div>
+
+
+       
+        <div class="form-group">
+            {{ form.category.label_tag }}
+            {{ form.category }}
+            {% if form.category.error %}
+            <div class="message error">
+                {{ form.category.error }}
+            </div>
+            {% endif %}
+        </div>
+
+
+  
+        <div class="form-group">
+            {{ form.supplier.label_tag }}
+            {{ form.supplier }}
+            {% if form.supplier.error %}
+            <div class="message error">
+                {{ form.supplier.error }}
+            </div>
+            {% endif %}
+        </div>
+
+
+    
+        <div class="form-group">
+            {{ form.price.label_tag }}
+            {{ form.price }}
+            {% if form.price.error %}
+            <div class="message error">
+                {{ form.price.error }}
+            </div>
+            {% endif %}
+        </div>
+
+
+
+        <div class="form-group">
+            {{ form.stock_qty.label_tag }}
+            {{ form.stock_qty }}
+            {% if form.stock_qty.error %}
+            <div class="message error">
+                {{ form.stock_qty.error }}
+            </div>
+            {% endif %}
+        </div>
+
+
+
+        <div class="form-group">
+            {{ form.reorder_level.label_tag }}
+            {{ form.reorder_level }}
+            {% if form.reorder_level.error %}
+            <div class="message error">
+                {{ form.reorder_level.error }}
+            </div>
+            {% endif %}
+        </div>
+
+
+  
+        <div class="form-group">
+            {{ form.expiry_date.label_tag }}
+            {{ form.expiry_date }}
+             {% if form.expiry_date.error %}
+            <div class="message error">
+                {{ form.expiry_date.error }}
+            </div>
+            {% endif %}
+        </div>
+
+
+
+        <div class="form-group">
+            {{ form.batch_no.label_tag }}
+            {{ form.batch_no }}
+            {% if form.batch_no.error %}
+            <div class="message error">
+                {{ form.batch_no.error }}
+            </div>
+            {% endif %}
+        </div>
+
+
+ 
+        <div class="form-group">
+            {{ form.unit.label_tag }}
+            {{ form.unit }}
+            {% if form.unit.error %}
+            <div class="message error">
+                {{ form.unit.error }}
+            </div>
+            {% endif %}
+        </div>
+
+
+
+        <div class="form-actions">
+
+            <a href="{% url 'medicine_home' %}"
+               class="cancel-btn">
+                Cancel
+            </a>
+
+            <button type="submit"
+                    class="submit-btn">
+                Add Medicine
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

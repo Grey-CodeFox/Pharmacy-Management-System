@@ -142,3 +142,37 @@
 .submit-btn:hover {
     background-color: #1d4ed8;
 }
+
+.medicine-image {
+    position: relative;
+    width: 70px;
+}
+
+.medicine-image>img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Bigger image */
+.medicine-image>img:hover {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+
+    object-fit: contain;
+
+    left: 50px;
+    top: -70px;
+
+    background: white;
+    padding: 5px;
+
+    border-radius: 8px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+    z-index: 100;
+}

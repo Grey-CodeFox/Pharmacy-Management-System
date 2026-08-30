@@ -14,7 +14,7 @@ class Unit(models.Model):
 
 
 class Medicines(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
     image = models.ImageField(upload_to='medicines/', null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)

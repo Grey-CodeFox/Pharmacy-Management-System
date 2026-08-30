@@ -114,6 +114,45 @@ content-card {
     font-weight: bold;
 }
 
+/* *** Medicine Image *** */
+
+.medicine-image {
+    width: 70px;
+}
+
+.thumbnail {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.image-popup {
+    position: fixed;
+
+    width: 250px;
+    height: 250px;
+
+    object-fit: contain;
+
+    background: white;
+    padding: 5px;
+    border-radius: 8px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 9999;
+}
+
+.medicine-image:hover .image-popup {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* ========= table row =========== */
 
 .content-table tbody tr {
@@ -129,15 +168,23 @@ tr th.action-head {
     text-align: center;
 }
 
-.action-cell {
+/* .action-cell {} */
+
+.action-buttons {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
 }
 
-.action-cell form {
+.action-buttons form {
     margin: 0;
+    padding: 0;
+}
+
+.action-buttons a {
+    display: flex;
+    align-items: center;
 }
 
 .edit-btn {

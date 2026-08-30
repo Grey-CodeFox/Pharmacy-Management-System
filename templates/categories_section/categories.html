@@ -36,6 +36,7 @@ Category
       <td>{{item.description}}</td>
 
       <td class="action-cell" >
+        <div class="action-buttons">
         <a href="{% url 'category_update' id=item.id %}" class="edit-btn">
           <img src="{% static 'img/pencil.png' %}" alt="" width="15" height = "15" />
         </a>
@@ -51,6 +52,7 @@ Category
             <img src="{% static 'img/bin.png' %}" alt="" width="15" height = "15" />
           </button>
         </form>
+      </div>
       </td>
     </tr>
     {% empty %}

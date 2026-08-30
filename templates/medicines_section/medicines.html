@@ -16,11 +16,10 @@ Medicines
   {% endblock %} 
   
   {% block cardHeadBtn %}
-<a href="{% url 'supplier_add' %}" class="add-page-btn">+ Add Medicine</a>
+<a href="{% url 'medicine_add' %}" class="add-page-btn">+ Add Medicine</a>
 {% endblock %}
 
 {% block cardContent %}
-{{form.as_p}}
 <table class="content-table">
   <thead>
     <tr>
@@ -39,15 +38,36 @@ Medicines
   </thead>
 
   <tbody>
-    {% comment %} {% for item in supplier %}
+     {% for item in medicine %}
     <tr>
       <td>{{item.name}}</td>
-      <td>{{item.contact_person}}</td>
-      <td>{{item.phone}}</td>
-      <td>{{item.email}}</td>
-      <td>{{item.address}}</td>
+      <td class="medicine-image">
+    {% if item.image %}
+        <div class="image-wrapper">
+            <img class="thumbnail"
+                 src="{{ item.image.url }}"
+                 alt="{{ item.name }}">
+
+            <img class="image-popup"
+                 src="{{ item.image.url }}"
+                 alt="{{ item.name }}">
+        </div>
+    {% else %}
+        No image
+    {% endif %}
+</td>
+      <td>{{item.category}}</td>
+      <td>{{item.unit}}</td>
+      <td>{{item.supplier}}</td>
+      <td>₹{{item.price}}</td>
+      <td>{{item.stock_qty}}</td>
+      <td>{{item.reorder_level}}</td>
+      <td>{{item.batch_no}}</td>
+      <td>{{item.expiry_date}}</td>
+      
 
       <td class="action-cell" >
+        <div class="action-buttons">
         <a href="{% url 'supplier_update' id=item.id %}" class="edit-btn">
           <img src="{% static 'img/pencil.png' %}" alt="" width="15" height = "15" />
         </a>
@@ -55,7 +75,7 @@ Medicines
           action="{% url 'supplier_delete' id=item.id%}"
           method="post"
           onsubmit="
-            return confirm('Are you sure you want to delete this supplier?')
+            return confirm('Are you sure you want to delete this Medicine?')
           "
         >
           {% csrf_token %}
@@ -63,6 +83,7 @@ Medicines
             <img src="{% static 'img/bin.png' %}" alt="" width="15" height = "15" />
           </button>
         </form>
+      </div>
       </td>
     </tr>
     
@@ -73,6 +94,6 @@ Medicines
                 </td>
             </tr>
     {% endfor %}
-  </tbody> {% endcomment %}
+  </tbody> 
 </table>
 {% endblock %}
