@@ -1,0 +1,41 @@
+{% extends "layouts/card-layout.html" %} 
+{% load static%}
+
+
+{%block title%}
+Customers
+ {%endblock%} 
+ {% block cardTitle %}
+  Customers 
+  {% endblock %} 
+  {% block cardDesc %} 
+  Manage Customers Inventory
+  {% endblock %} 
+  {% block cardHeadText %} 
+  All Customers
+  {% endblock %} 
+  
+  {% block cardHeadBtn %}
+<a href="{% url 'customer_add' %}" class="add-page-btn">+ Add Customers</a>
+{% endblock %}
+
+{% block cardContent %}
+<table class="content-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Address</th>
+      
+      <th class="action-head" >Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    
+   
+  </tbody> 
+</table>
+{% endblock %}
