@@ -116,7 +116,13 @@ New Sale
                 </tr>
 
             </thead>
-
+            {% if messages %}
+    {% for message in messages %}
+        <div class="message error">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
             <tbody id="sale-table-body">
             </tbody>
 
@@ -249,9 +255,7 @@ New Sale
                 parseInt(totalForms.value);
 
 
-            /*
-                Create hidden medicine field
-            */
+           
 
             const medicineInput =
                 document.createElement("input");
@@ -265,9 +269,7 @@ New Sale
                 medicineId;
 
 
-            /*
-                Create hidden quantity field
-            */
+            
 
             const qtyInput =
                 document.createElement("input");
@@ -281,9 +283,7 @@ New Sale
                 quantity;
 
 
-            /*
-                Put hidden fields inside form
-            */
+           
 
             itemsContainer.appendChild(
                 medicineInput
@@ -294,10 +294,7 @@ New Sale
             );
 
 
-            /*
-                Tell Django another
-                form has been added
-            */
+           
 
             totalForms.value =
                 formIndex + 1;
