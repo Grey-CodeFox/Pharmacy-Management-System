@@ -1,0 +1,89 @@
+{% comment %} {% extends "layouts/card-layout.html" %}
+{% load static %}
+
+{% block title %}
+Update Sale
+{% endblock %}
+
+{% block cardTitle %}
+Update Sale
+{% endblock %}
+
+{% block cardDesc %}
+Edit Sale Details
+{% endblock %}
+
+{% block cardHeadText %}
+Update Sale #{{ sale.id }}
+{% endblock %}
+
+{% block cardContent %}
+
+<form method="post">
+
+{% csrf_token %}
+
+<!-- Sale Form -->
+<div class="form-section">
+
+    {{ saleForm.as_p }}
+
+</div>
+
+
+<!-- Sales Items -->
+<div class="form-section">
+
+    <h3>Sale Items</h3>
+
+    {{ item_formset.management_form }}
+
+    {% for form in item_formset %}
+
+        <div class="sale-item">
+
+            {{ form.id }}
+
+            <div>
+                {{ form.medicine.label_tag }}
+                {{ form.medicine }}
+            </div>
+
+            <div>
+                {{ form.qty.label_tag }}
+                {{ form.qty }}
+            </div>
+
+            {% if form.DELETE %}
+            <div>
+                {{ form.DELETE.label_tag }}
+                {{ form.DELETE }}
+            </div>
+            {% endif %}
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+
+<!-- Buttons -->
+<div class="form-buttons">
+
+    <button type="submit" class="save-btn">
+        Update Sale
+    </button>
+
+    <a
+        href="{% url 'sale_home' %}"
+        class="cancel-btn"
+    >
+        Cancel
+    </a>
+
+</div>
+
+</form>
+
+{% endblock %} {% endcomment %}

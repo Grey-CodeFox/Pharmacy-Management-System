@@ -1,0 +1,153 @@
+{% extends "layouts/card-layout.html" %}
+{% load static %}
+
+{% block title %}
+Sales
+{% endblock %}
+
+{% block cardTitle %}
+Sales
+{% endblock %}
+
+{% block cardDesc %}
+Manage Sales Inventory
+{% endblock %}
+
+{% block cardHeadText %}
+All Sales
+{% endblock %}
+
+{% block cardHeadBtn %}
+<a href="{% url 'sale_add' %}" class="add-page-btn">
++ Add Sales
+</a>
+{% endblock %}
+
+{% block cardContent %}
+
+<table class="content-table">
+
+<thead>
+    <tr>
+        <th>Date</th>
+        <th>Customer</th>
+        <th>Items</th>
+        <th>Total</th>
+        <th>Sold By</th>
+        <th class="action-head">Actions</th>
+    </tr>
+</thead>
+
+<tbody>
+
+    {% for sale in sales %}
+
+    <tr>
+
+        
+        <td>
+            {{ sale.date}}
+        </td>
+
+
+        <td>
+            {{ sale.customer }}
+        </td>
+
+
+        
+        <td>
+
+            {% for item in sale.items.all %}
+
+                {{ item.medicine.name }}
+                × {{ item.qty }}
+
+                {% if not forloop.last %}
+                    <br>
+                {% endif %}
+
+            {% empty %}
+
+                No items
+
+            {% endfor %}
+
+        </td>
+
+
+       
+        <td>
+            ₹{{ sale.total }}
+        </td>
+
+
+        
+        <td>
+            {{ sale.sold_by }}
+        </td>
+
+
+        <!-- Actions -->
+        <td class="action-cell">
+
+            <div class="action-buttons">
+
+                {% comment %} <!-- Update -->
+                <a
+                    href="{% url 'sale_update' id=sale.id %}"
+                    class="edit-btn"
+                >
+                    <img
+                        src="{% static 'img/pencil.png' %}"
+                        alt="Edit"
+                        width="15"
+                        height="15"
+                    />
+                </a> {% endcomment %}
+
+
+                <!-- Delete -->
+                <form
+                    action="{% url 'sale_delete' id=sale.id %}"
+                    method="post"
+                    onsubmit="return confirm('Are you sure you want to delete this Sale?')"
+                >
+
+                    {% csrf_token %}
+
+                    <button
+                        type="submit"
+                        class="delete-btn"
+                    >
+                        <img
+                            src="{% static 'img/bin.png' %}"
+                            alt="Delete"
+                            width="15"
+                            height="15"
+                        />
+                    </button>
+
+                </form>
+
+            </div>
+
+        </td>
+
+    </tr>
+
+    {% empty %}
+
+    <tr>
+        <td colspan="6" class="empty-message">
+            No sales found.
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</tbody>
+
+</table>
+
+{% endblock %}

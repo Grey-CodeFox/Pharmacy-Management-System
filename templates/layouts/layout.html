@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>{% block title %}NuChemist{% endblock %}</title>
-
+    <link rel="shortcut icon" href="{% static "img/logo.png" %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/layout/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/layout/card-layout.css' %}">
     <link rel="stylesheet" href="{% static 'css/layout/add-items-layout.css' %}">
@@ -30,63 +30,102 @@
         <!-- Navigation -->
         <nav class="nav-contents">
           <a href="#" class="nav-items">
-            <span class="nav-icon">⌂</span>
+    <span class="nav-icon">
+        <img src="{% static 'img/analytics.png' %}" alt="">
+    </span>
             <span>Dashboard</span>
           </a>
 
           <a href="{% url 'medicine_home' %}" class="nav-items">
-            <span class="nav-icon">▣</span>
+            <span class="nav-icon">
+        <img src="{% static 'img/medicines.png' %}" alt="">
+    </span>
             <span>Medicines</span>
           </a>
 
           <a href="{% url 'category_home' %} "class="nav-items">
-            <span class="nav-icon">◈</span>
+            <span class="nav-icon">
+        <img src="{% static 'img/category.png' %}" alt="">
+    </span>
             <span>Categories</span>
           </a>
 
           <a href="{% url 'supplier_home' %}" class="nav-items">
-            <span class="nav-icon">▤</span>
+            <span class="nav-icon">
+        <img src="{% static 'img/supplier.png' %}" alt="">
+    </span>
             <span>Suppliers</span>
           </a>
 
-          <a href="#" class="nav-items">
-            <span class="nav-icon">▥</span>
+          {% comment %} <a href="#" class="nav-items">
+            <span class="nav-icon">
+        <img src="{% static 'img/stock.png' %}" alt="">
+    </span>
             <span>Stock</span>
-          </a>
+          </a> {% endcomment %}
 
           <a href="{% url 'customer_home' %}" class="nav-items">
-            <span class="nav-icon">♙</span>
+            <span class="nav-icon">
+        <img src="{% static 'img/customer.png' %}" alt="">
+    </span>
             <span>Customers</span>
           </a>
 
-          <a href="#" class="nav-items">
-            <span class="nav-icon">▱</span>
+          <a href="{% url 'sale_home'%}" class="nav-items">
+            <span class="nav-icon">
+        <img src="{% static 'img/sale.png' %}" alt="">
+    </span>
             <span>Sales</span>
           </a>
 
-          <a href="#" class="nav-items">
-            <span class="nav-icon">▥</span>
+          {% comment %} <a href="#" class="nav-items">
+            <span class="nav-icon">
+        <img src="{% static 'img/report.png' %}" alt="">
+    </span>
             <span>Reports</span>
-          </a>
+          </a> {% endcomment %}
         </nav>
+    {% if request.user.is_superuser %}
 
+        <a href="{% url 'employee_registration' %}" class="nav-items">
+            <span class="nav-icon">
+                <img src="{% static 'img/register-user.png' %}" alt="">
+            </span>
+
+            <span>Employee Registration</span>
+        </a>
+
+    {% endif %}
         <!-- User -->
-        <div class="nav-user">
-          <div class="user-contents">
-            <div class="user-avatar">AR</div>
+      
+<div class="nav-user">
+    <div class="user-contents">
 
-            <div class="user-info">
-              <div class="user-name">User Name</div>
-
-              <div class="user-role">Administrator</div>
-            </div>
-          </div>
-
-          <form method="POST" action="{% url 'profile_logout' %}">
-            {% csrf_token %}
-            <button type="submit" class="logout-btn">Logout</button>
-          </form>
+        <div class="user-avatar">
+            {{ request.user.username|first|upper }}
         </div>
+
+        <div class="user-info">
+
+            <div class="user-name">
+                {{ request.user.username }}
+            </div>
+
+            <div class="user-role">
+                {{ request.user.get_role_display }}
+            </div>
+
+        </div>
+
+    </div>
+
+    <form method="POST" action="{% url 'profile_logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="logout-btn">
+            Logout
+        </button>
+    </form>
+</div>
       </aside>
 
       <!-- Main Content -->

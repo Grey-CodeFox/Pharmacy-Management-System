@@ -9,7 +9,7 @@ class Customers(models.Model):
                             )
 
     phone = models.CharField(
-        max_length=15,
+        max_length=10,
         blank=True
     )
 
@@ -23,7 +23,7 @@ class Customers(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
-    purchases = models.PositiveIntegerField(blank=True)
+    purchases = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name

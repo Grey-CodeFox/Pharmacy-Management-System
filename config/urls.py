@@ -33,6 +33,7 @@ urlpatterns = [
     path('supplier/', include('apps.suppliers.urls')),
     path('medicines/', include('apps.medicines.urls')),
     path('customers/', include('apps.customers.urls')),
+    path('sales/', include('apps.sales.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

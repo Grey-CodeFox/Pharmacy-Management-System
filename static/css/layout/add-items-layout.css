@@ -42,7 +42,7 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #2563eb;
+    border-color: #63C6A7;
 
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
@@ -79,7 +79,7 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #2563eb;
+    border-color: #63C6A7;
 
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
@@ -125,7 +125,7 @@
 
     border: none;
 
-    background-color: #2563eb;
+    background-color: #63C6A7;
 
     color: white;
 
@@ -140,7 +140,7 @@
 }
 
 .submit-btn:hover {
-    background-color: #1d4ed8;
+    background-color: #83dec1;
 }
 
 .medicine-image {

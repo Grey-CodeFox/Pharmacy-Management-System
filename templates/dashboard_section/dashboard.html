@@ -1,8 +1,164 @@
-{% extends "layouts/layout.html" %}
-{% load static%}
+{% extends "layouts/card-layout.html" %}
+{% load static %}
 
-{%block title%} Dashboard {%endblock%}
+{% block title %}
+Dashboard
+{% endblock %}
 
-{% block content %} 
-<h1> DASHBOARD </h1>
+{% block cardTitle %}
+Dashboard
+{% endblock %}
+
+{% block cardDesc %}
+Pharmacy Management Overview
+{% endblock %}
+
+{% block cardHeadText %}
+Overview
+{% endblock %}
+
+{% block cardHeadBtn %}
+{% endblock %}
+
+{% block cardContent %}
+
+<!-- SUMMARY -->
+
+<div class="dashboard-cards">
+
+<div class="dashboard-card">
+    <h3>Total Medicines</h3>
+    <h2>{{ medicine_count }}</h2>
+</div>
+
+<div class="dashboard-card">
+    <h3>Total Customers</h3>
+    <h2>{{ customer_count }}</h2>
+</div>
+
+<div class="dashboard-card">
+    <h3>Low Stock</h3>
+    <h2>{{ low_stock_count }}</h2>
+</div>
+
+<div class="dashboard-card">
+    <h3>Today's Sales</h3>
+    <h2>₹{{ today_sales_total|floatformat:2 }}</h2>
+</div>
+
+</div>
+
+<!-- RECENT SALES -->
+
+<div class="dashboard-section">
+
+<h2>Recent Sales</h2>
+
+<table class="content-table">
+
+    <thead>
+
+        <tr>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Total</th>
+            <th>Sold By</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for sale in recent_sales %}
+
+        <tr>
+
+            <td>
+                {{ sale.date|date:"d-m-Y H:i" }}
+            </td>
+
+            <td>
+                {{ sale.customer }}
+            </td>
+
+            <td>
+                ₹{{ sale.total }}
+            </td>
+
+            <td>
+                {{ sale.sold_by }}
+            </td>
+
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="4" class="empty-message">
+                No sales found.
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+</div>
+
+<!-- LOW STOCK -->
+
+<div class="dashboard-section">
+
+<h2>Low Stock Medicines</h2>
+
+<table class="content-table">
+
+    <thead>
+
+        <tr>
+            <th>Medicine</th>
+            <th>Stock</th>
+            <th>Reorder Level</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for medicine in low_stock_medicines %}
+
+        <tr>
+
+            <td>
+                {{ medicine.name }}
+            </td>
+
+            <td>
+                {{ medicine.stock_qty }}
+            </td>
+
+            <td>
+                {{ medicine.reorder_level }}
+            </td>
+
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="3" class="empty-message">
+                No low stock medicines.
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+</div>
+
 {% endblock %}

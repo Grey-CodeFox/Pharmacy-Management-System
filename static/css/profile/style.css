@@ -66,7 +66,7 @@ form textarea {
 form input:focus,
 form select:focus,
 form textarea:focus {
-    border-color: #2563eb;
+    border-color: #63C6A7;
 }
 
 form ul.errorlist {
@@ -81,7 +81,7 @@ form ul.errorlist {
     padding: 12px;
     border: none;
     border-radius: 7px;
-    background: #2563eb;
+    background: #63C6A7;
     color: white;
     font-size: 16px;
     font-weight: 600;
@@ -90,7 +90,7 @@ form ul.errorlist {
 }
 
 .btn:hover {
-    background: #1d4ed8;
+    background: #79dbbc;
 }
 
 .admin-link,
@@ -98,7 +98,7 @@ form ul.errorlist {
     display: block;
     text-align: center;
     margin-top: 20px;
-    color: #2563eb;
+    color: #63C6A7;
     text-decoration: none;
     font-size: 14px;
 }
@@ -122,4 +122,44 @@ form ul.errorlist {
     border-radius: 6px;
     margin-bottom: 15px;
     font-size: 14px;
+}
+
+/* Login LOGO  */
+.login-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.login-logo-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    background: #63C6A7;
+    color: white;
+}
+
+.login-logo-text {
+    text-align: left;
+}
+
+.login-logo-text h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.login-logo-text p {
+    margin: 2px 0 0;
+    font-size: 12px;
 }

@@ -6,7 +6,8 @@ from . import forms
 
 
 def customer_home(request):
-    return render(request, "customers_section/customers.html")
+    customer = Customers.objects.all()
+    return render(request, "customers_section/customers.html", {"customer": customer})
 
 
 def customer_add(request):
@@ -34,7 +35,7 @@ def customer_update(request, id):
     return render(request, "customers_section/customers-update.html", {"form": form})
 
 
-def customer_delete(request):
+def customer_delete(request, id):
     customer = Customers.objects.get(id=id)
 
     if request.method == "POST":
