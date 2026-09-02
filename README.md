@@ -2,6 +2,8 @@
 
 A web-based **Pharmacy Management System** built with Django to manage medicines, customers, suppliers, stock, sales, and related pharmacy operations.
 
+<img src="Screenshots/dashboard.jpeg" alt="Dashboard" width="800">
+
 ## 🚀 Features
 
 * 🔐 User authentication
@@ -97,6 +99,24 @@ Example:
 SECRET_KEY=your-secret-key
 DEBUG=False
 ```
+
+## 📸 Screenshots
+
+### Medicines
+
+<img src="Screenshots/medicine.jpeg" alt="Dashboard" width="800">
+
+### Category
+
+<img src="Screenshots/category.jpeg" alt="Dashboard" width="800">
+
+### New Sale Registering
+
+<img src="Screenshots/new sale.jpeg" alt="Dashboard" width="800">
+
+### Sale
+
+<img src="Screenshots/sale.jpeg" alt="Dashboard" width="800">
 
 ## 📌 Project Status
 
